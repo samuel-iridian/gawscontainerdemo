@@ -25,4 +25,4 @@ async function getUser() {
 
 getUser()
   .then(() => process.exit())
-  .then((err) => console.error(err));
+  .catch((err) => console.error(err));
