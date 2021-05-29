@@ -14,13 +14,18 @@ async function getUser() {
     text: script,
     values: [],
   };
-  console.log(query);
-  let res = await client.query(query);
-  console.log(res.command);
-  console.log(res.rowCount);
-  console.log(res.rows);
-  await client.end();
-  console.log("disconnected from database");
+
+  try {
+    console.log(query);
+    let res = await client.query(query);
+    console.log(res.command);
+    console.log(res.rowCount);
+    console.log(res.rows);
+    await client.end();
+    console.log("disconnected from database");
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 getUser()
