@@ -7,27 +7,36 @@ const client = new Client({
   connectionString: connectionString,
 });
 
-async function getUser() {
-  let script = `SELECT * FROM users`;
+client
+  .query({ text: `SELECT * FROM users`, values: [] })
+  .then((resolve) => {
+    console.log(resolve);
+  })
+  .catch((reject) => {
+    console.log(reject);
+  });
 
-  let query = {
-    text: script,
-    values: [],
-  };
+// async function getUser() {
+//   let script = `SELECT * FROM users`;
 
-  try {
-    console.log(query);
-    let res = await client.query(query);
-    console.log(res.command);
-    console.log(res.rowCount);
-    console.log(res.rows);
-    await client.end();
-    console.log("disconnected from database");
-  } catch (error) {
-    console.log(error);
-  }
-}
+//   let query = {
+//     text: script,
+//     values: [],
+//   };
 
-getUser()
-  .then(() => process.exit())
-  .catch((err) => console.error(err));
+//   try {
+//     console.log(query);
+//     let res = await client.query(query);
+//     console.log(res.command);
+//     console.log(res.rowCount);
+//     console.log(res.rows);
+//     await client.end();
+//     console.log("disconnected from database");
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+
+// getUser()
+//   .then(() => process.exit())
+//   .catch((err) => console.error(err));
