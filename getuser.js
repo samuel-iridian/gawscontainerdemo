@@ -8,13 +8,13 @@ const client = new Client({
 });
 
 async function getUser() {
-  let script = `select * from users`;
+  let script = `SELECT * FROM users`;
 
   let query = {
     text: script,
     values: [],
   };
-
+  console.log(query);
   let res = await client.query(query);
   console.log(res.command);
   console.log(res.rowCount);

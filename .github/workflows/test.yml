@@ -42,6 +42,6 @@ jobs:
           DBURL: "postgres://postgres:postgres@localhost:5432/postgres"
 
       - name: Run the mock tests function
-        run: node getUser.js
+        run: node getuser.js
         env:
           DBURL: postgres://postgres:postgres@localhost:5432/postgres
