@@ -1,6 +1,7 @@
 const { Client } = require("pg");
 
 const connectionString = process.env.DBURL;
+
 console.log(connectionString);
 
 const client = new Client({
